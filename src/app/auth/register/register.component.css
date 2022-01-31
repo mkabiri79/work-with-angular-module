@@ -28,8 +28,12 @@
   font-size: 1.2rem;
 }
 .form {
-  text-align: left;
   width: 100%;
+}
+.form__group {
+  height: 6.6rem;
+  text-align: left;
+  margin-bottom: 3rem;
   display: flex;
   flex-direction: column;
 }

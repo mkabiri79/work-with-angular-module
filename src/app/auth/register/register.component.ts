@@ -39,4 +39,7 @@ export class RegisterComponent implements OnInit {
 
     return null;
   }
+  public isFormValid() {
+    return this.registerForm.touched && this.registerForm.invalid;
+  }
 }
