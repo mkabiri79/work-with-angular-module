@@ -1,4 +1,20 @@
 <div class="container">
-  <h1>register works!</h1>
-  <button (click)="gotologin()" class="btn btn-primary">Go to login</button>
+  <div class="register">
+    <h1 class="register__title">Register</h1>
+    <form class="form" [formGroup]="registerForm">
+      <label class="form__label">Notional Code: </label>
+      <input
+        class="form__input form__input_danger"
+        formControlName="nationalCode"
+        id="nationalCode"
+      />
+      <label class="form__label form__label_danger"
+        >Invalid Notional code</label
+      >
+    </form>
+    <p class="register__license">
+      Lorem ipsum dolor sit amet <strong>consectetur</strong> adipisicing elit.
+      Sapiente, repellat incidunt minus, hic nostrum obcaecati!
+    </p>
+  </div>
 </div>

@@ -1,4 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+/*
+#222831 black
+#393E46 #8d95a2 gray
+#00ADB5 primary
+#EEEEEE white
+#b50800 red
+*/
 html {
   font-size: 62.5%;
 }
@@ -8,28 +15,29 @@ html {
   box-sizing: border-box;
 }
 body {
-}
-.container {
-  margin-top: 5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4rem;
-}
+  font-family: "Poppins", sans-serif;
+  font-size: 1.8rem;
 
-.btn {
-  border: none;
-  cursor: pointer;
-  font-size: 1.6rem;
-  padding: 1rem 3.2rem;
-  border-radius: 5px;
+  margin-bottom: 15.4rem;
+
+  color: #393e46;
+  background-color: #eeeeee;
 }
-.btn-primary {
-  background-color: #1abc9c;
-  color: #fff;
-}
-@media (max-width: 31.25em) {
+/* BELOW 1200px */
+@media (max-width: 75em) {
   html {
-    font-size: 55%;
+    font-size: 56.25%;
+  }
+}
+/* BELOW 944px  */
+@media (max-width: 59em) {
+  html {
+    font-size: 50%;
+  }
+}
+/* BELOW 310px  */
+@media (max-width: 19.375em) {
+  html {
+    font-size: 43.75%;
   }
 }

@@ -1,15 +1,6 @@
-.nav {
-  margin: 0 2rem;
+.navbar {
+  color: #393e46;
 }
-.nav__list {
-  display: flex;
-  gap: 4rem;
-  list-style: none;
-}
-.nav__link:link,
-.nav__link:visited {
-  text-decoration: none;
-  font-size: 2rem;
-  font-weight: 400;
-  color: #555;
+.navbar__link_active {
+  color: #222831;
 }

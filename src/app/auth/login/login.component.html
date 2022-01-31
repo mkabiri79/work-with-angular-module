@@ -1,6 +1,23 @@
 <div class="container">
-  <h1>login works!</h1>
-  <button (click)="gotoregister()" class="btn btn-primary">
-    Back to register
-  </button>
+  <div class="login">
+    <h1 class="login__title">Login</h1>
+    <form class="form">
+      <div class="form__group">
+        <label class="form__label">Notional Code: </label>
+        <input class="form__input" type="text" id="nationalCode" />
+        <label hidden class="form__label form__label_danger"
+          >Invalid Notional code</label
+        >
+      </div>
+      <div class="form__group">
+        <label class="form__label">Password: </label>
+        <input class="form__input" type="text" id="nationalCode" />
+        <label hidden class="form__label form__label_danger"
+          >Invalid Password</label
+        >
+      </div>
+    </form>
+    <button class="login__button login__button_size_l">Login</button>
+    <a class="login__link" href="">Forgot password?</a>
+  </div>
 </div>

@@ -1,0 +1,70 @@
+.container {
+  padding: 4rem 2rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login {
+  width: 38rem;
+  height: 40rem;
+  padding: 2rem;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.11);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+.login__title {
+  font-size: 2.4rem;
+  color: #222831;
+  margin-bottom: 2rem;
+}
+.login__button {
+  cursor: pointer;
+  border: none;
+  color: #eeeeee;
+  width: 16rem;
+  height: 4rem;
+  border-radius: 4px;
+  background-color: #222831;
+}
+.login__button_size_l {
+  width: 34rem;
+}
+.login__link:link,
+.login__link:visited {
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: #00adb5;
+}
+.form {
+  width: 100%;
+}
+.form__group {
+  text-align: left;
+  margin-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+}
+.form__input {
+  padding: 0.5rem 1rem;
+  background-color: inherit;
+  border: none;
+  border-bottom: 2px solid #222831;
+}
+.form__input:focus {
+  outline: none;
+}
+.form__label {
+  font-size: 1.4rem;
+}
+.form__input_danger {
+  border-bottom: 2px solid #b50800;
+}
+.form__label_danger {
+  font-size: 1.2rem;
+  color: #b50800;
+}
