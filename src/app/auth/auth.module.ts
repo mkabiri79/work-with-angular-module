@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { AuthComponent } from './auth.component';
 import { AuthGuard } from './auth.guard';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 const routes: Routes = [
   {
@@ -19,11 +20,17 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
+  { path: 'sidebar', component: SidebarComponent },
   { path: '**', redirectTo: 'register' },
 ];
 
 @NgModule({
-  declarations: [RegisterComponent, LoginComponent, AuthComponent],
+  declarations: [
+    RegisterComponent,
+    LoginComponent,
+    AuthComponent,
+    SidebarComponent,
+  ],
   imports: [
     CommonModule,
     SharedModule,

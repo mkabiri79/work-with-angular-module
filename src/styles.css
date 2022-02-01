@@ -18,8 +18,6 @@ body {
   font-family: "Poppins", sans-serif;
   font-size: 1.8rem;
 
-  margin-bottom: 15.4rem;
-
   color: #393e46;
   background-color: #eeeeee;
 }
@@ -36,9 +34,8 @@ body {
   }
 }
 /* BELOW 310px  */
-@media (max-width: 19.375em) {
+@media (max-width: 27.435em) {
   html {
     font-size: 43.75%;
-    margin-bottom: 18rem;
   }
 }
