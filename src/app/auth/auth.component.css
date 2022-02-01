@@ -1,6 +1,12 @@
 .navbar {
+  direction: rtl;
   color: #393e46;
+  background-color: #eee;
+  padding: 0.6rem 2rem;
 }
 .navbar__link_active {
   color: #222831;
+}
+.navbar__link {
+  margin-left: 1rem;
 }
