@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="register">
+  <div class="register" *ngIf="isNationalCodeValid === false">
     <h1 class="register__title">Register</h1>
     <form
       class="form"
@@ -24,5 +24,9 @@
       Lorem ipsum dolor sit amet <strong>consectetur</strong> adipisicing elit.
       Sapiente, repellat incidunt minus, hic nostrum obcaecati!
     </p>
+  </div>
+  <div class="register" *ngIf="isNationalCodeValid === true">
+    <h1>You are Registered</h1>
+    <p>Please login</p>
   </div>
 </div>

@@ -11,9 +11,11 @@ import { AuthService } from '../auth.service';
 export class RegisterComponent implements OnInit {
   registerForm!: FormGroup;
   isFormValid: boolean = true;
+  isNationalCodeValid!: boolean;
   constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
+    this.isNationalCodeValid = this.authService.isNationalCodeValid;
     this.registerForm = new FormGroup({
       nationalCode: new FormControl(null, [
         Validators.required,
@@ -44,12 +46,13 @@ export class RegisterComponent implements OnInit {
   }
 
   public onSubmitRegisterForm() {
-    if (this.registerForm.status === 'VALID')
-      this.authService.checkUserNationalCodeValidation(this.registerForm.value);
+    //passing data to service
+    this.authService.checkUserNationalCodeValidation(this.registerForm.value);
+    //checking form validation
+    this.isFormValid = this.registerForm.valid && this.isNationalCodeValid;
 
-    this.isFormValid =
-      this.registerForm.valid && this.authService.isNationalCodeValid;
-
+    //navigate to login
     this.router.navigate(['login']);
+    this.registerForm.reset();
   }
 }
