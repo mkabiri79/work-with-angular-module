@@ -9,8 +9,9 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
-  constructor(private authService: AuthService, private router: Router) {}
   registerForm!: FormGroup;
+  isFormValid: boolean = true;
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
     this.registerForm = new FormGroup({
@@ -34,18 +35,17 @@ export class RegisterComponent implements OnInit {
     return null;
   }
 
-  public isFormValid() {
-    return (
-      this.registerForm.touched &&
-      (this.registerForm.invalid || !this.authService.isNationalCodeValid)
-    );
-  }
-
   public onSubmitRegisterForm() {
-    this.authService.checkUserNationalCodeValidation(this.registerForm.value);
-    this.isFormValid();
-    console.log(this.authService.isNationalCodeValid);
+    if (this.registerForm.status === 'VALID')
+      this.authService.checkUserNationalCodeValidation(this.registerForm.value);
+
+    this.isFormValid =
+      this.registerForm.valid && this.authService.isNationalCodeValid;
 
     this.router.navigate(['login']);
+  }
+
+  public canDeactivate() {
+    return this.authService.isNationalCodeValid;
   }
 }
