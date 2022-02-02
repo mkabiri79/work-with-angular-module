@@ -12,6 +12,7 @@ export class RegisterComponent implements OnInit {
   registerForm!: FormGroup;
   isFormValid: boolean = true;
   isNationalCodeValid!: boolean;
+  alertMassege!: string;
   constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
@@ -35,21 +36,43 @@ export class RegisterComponent implements OnInit {
   }
 
   private isNummber(control: FormControl) {
-    let val = control.value;
+    const value = control.value;
+    if (value === null) return null;
 
-    if (val === null) return null;
-
-    if (!val.toString().match(/^[0-9]+(\.?[0-9]+)?$/))
+    if (!value.toString().match(/^[0-9]+(\.?[0-9]+)?$/))
       return { invalidNumber: true };
 
     return null;
   }
 
-  public onSubmitRegisterForm() {
-    //passing data to service
-    this.authService.checkUserNationalCodeValidation(this.registerForm.value);
-    //checking form validation
+  private findErrorType(error: string) {
+    return this.registerForm.get('nationalCode')?.hasError(error);
+  }
+
+  private findErrorMassege() {
+    this.alertMassege = 'Invalid Notional code';
+    if (this.findErrorType('invalidLength'))
+      this.alertMassege = 'Should be between 8 and 10 char';
+    if (this.findErrorType('invalidNumber'))
+      this.alertMassege = 'Should be number';
+    if (this.findErrorType('required')) this.alertMassege = 'Required';
+  }
+
+  private checkingFormValidation() {
+    this.findErrorMassege();
     this.isFormValid = this.registerForm.valid && this.isNationalCodeValid;
+  }
+
+  private passingNationalCodetoService() {
+    this.authService.checkUserNationalCodeValidation(this.registerForm.value);
+  }
+
+  public onSubmitRegisterForm() {
+    this.passingNationalCodetoService();
+
+    this.checkingFormValidation();
+
+    console.log();
 
     //navigate to login
     this.router.navigate(['login']);

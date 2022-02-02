@@ -15,7 +15,7 @@
           id="nationalCode"
         />
         <label *ngIf="!isFormValid" class="form__label form__label_danger"
-          >Invalid Notional code</label
+          ><span>{{ alertMassege }}</span></label
         >
       </div>
       <button class="register__button register__button_size_l">Register</button>
