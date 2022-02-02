@@ -26,6 +26,23 @@
   color: #8d95a2;
   font-size: 1.2rem;
 }
+.register__button {
+  cursor: pointer;
+  border: none;
+  color: #eeeeee;
+  width: 16rem;
+  height: 4rem;
+  border-radius: 4px;
+  background-color: #222831;
+}
+.register__button_size_l {
+  width: 34rem;
+}
+.register__button:hover {
+  color: #222831;
+  border: 1px solid #222831;
+  background-color: #eeeeee;
+}
 .form {
   width: 100%;
 }

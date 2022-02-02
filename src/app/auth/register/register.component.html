@@ -1,7 +1,11 @@
 <div class="container">
   <div class="register">
     <h1 class="register__title">Register</h1>
-    <form class="form" [formGroup]="registerForm">
+    <form
+      class="form"
+      (ngSubmit)="onSubmitRegisterForm()"
+      [formGroup]="registerForm"
+    >
       <div class="form__group">
         <label class="form__label">Notional Code: </label>
         <input
@@ -14,6 +18,7 @@
           >Invalid Notional code</label
         >
       </div>
+      <button class="register__button register__button_size_l">Register</button>
     </form>
     <p class="register__license">
       Lorem ipsum dolor sit amet <strong>consectetur</strong> adipisicing elit.

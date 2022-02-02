@@ -6,10 +6,8 @@ import { IUser } from './Model/model';
 })
 export class AuthService {
   isNationalCodeValid: boolean = false;
-  constructor(private router: Router) {}
+  constructor() {}
   public checkUserNationalCodeValidation(User: IUser) {
-    this.isNationalCodeValid = false;
-
     const nationalCode = User.nationalCode;
 
     let reverseNationalCode: string[] = nationalCode.split('').reverse();
@@ -34,7 +32,6 @@ export class AuthService {
       (remainder >= 2 && controlNumber === 11 - remainder)
     ) {
       this.isNationalCodeValid = true;
-      this.router.navigate(['login']);
     }
   }
 }

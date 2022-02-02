@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-
 import { AuthService } from '../auth.service';
-import { IUser } from '../Model/model';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -12,6 +11,7 @@ import { IUser } from '../Model/model';
 export class RegisterComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) {}
   registerForm!: FormGroup;
+
   ngOnInit(): void {
     this.registerForm = new FormGroup({
       nationalCode: new FormControl(null, [
@@ -20,12 +20,6 @@ export class RegisterComponent implements OnInit {
         Validators.maxLength(10),
         this.isNumber,
       ]),
-    });
-
-    this.registerForm.valueChanges.subscribe((user: IUser) => {
-      if (this.registerForm.status === 'VALID') {
-        this.authService.checkUserNationalCodeValidation(user);
-      }
     });
   }
 
@@ -39,7 +33,19 @@ export class RegisterComponent implements OnInit {
 
     return null;
   }
+
   public isFormValid() {
-    return this.registerForm.touched && this.registerForm.invalid;
+    return (
+      this.registerForm.touched &&
+      (this.registerForm.invalid || !this.authService.isNationalCodeValid)
+    );
+  }
+
+  public onSubmitRegisterForm() {
+    this.authService.checkUserNationalCodeValidation(this.registerForm.value);
+    this.isFormValid();
+    console.log(this.authService.isNationalCodeValid);
+
+    this.router.navigate(['login']);
   }
 }
