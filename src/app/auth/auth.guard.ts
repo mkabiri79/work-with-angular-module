@@ -22,6 +22,6 @@ export class AuthGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    return !this.authService.isNationalCodeValid;
+    return this.authService.isNationalCodeValid;
   }
 }

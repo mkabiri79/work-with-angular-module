@@ -8,21 +8,18 @@ import { AuthComponent } from './auth.component';
 import { AuthGuard } from './auth.guard';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { CanDeactivateGuard } from '../can-deactivate.guard';
 
 const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent,
-    canActivate: [AuthGuard],
-    canDeactivate: [CanDeactivateGuard],
   },
   {
     path: '',
     redirectTo: 'register',
     pathMatch: 'full',
   },
-  { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
   { path: 'sidebar', component: SidebarComponent },
   { path: '**', redirectTo: 'register' },
 ];

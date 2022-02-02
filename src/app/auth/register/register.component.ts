@@ -44,8 +44,4 @@ export class RegisterComponent implements OnInit {
 
     this.router.navigate(['login']);
   }
-
-  public canDeactivate() {
-    return this.authService.isNationalCodeValid;
-  }
 }
