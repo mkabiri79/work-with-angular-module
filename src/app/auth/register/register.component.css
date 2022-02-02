@@ -27,6 +27,7 @@
   font-size: 1.2rem;
 }
 .register__button {
+  font-size: 1.6rem;
   cursor: pointer;
   border: none;
   color: #eeeeee;
@@ -34,6 +35,7 @@
   height: 4rem;
   border-radius: 4px;
   background-color: #222831;
+  transition: all 0.3s;
 }
 .register__button_size_l {
   width: 34rem;

@@ -20,7 +20,7 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
-  { path: 'sidebar', component: SidebarComponent },
+  { path: 'sidebar', component: SidebarComponent, canActivate: [AuthGuard] },
   { path: '**', redirectTo: 'register' },
 ];
 

@@ -72,8 +72,6 @@ export class RegisterComponent implements OnInit {
 
     this.checkingFormValidation();
 
-    console.log();
-
     //navigate to login
     this.router.navigate(['login']);
     this.registerForm.reset();
