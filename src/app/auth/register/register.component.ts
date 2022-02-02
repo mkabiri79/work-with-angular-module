@@ -17,17 +17,25 @@ export class RegisterComponent implements OnInit {
     this.registerForm = new FormGroup({
       nationalCode: new FormControl(null, [
         Validators.required,
-        Validators.minLength(8),
-        Validators.maxLength(10),
-        this.isNumber,
+        this.hasCorrectLength,
+        this.isNummber,
       ]),
     });
   }
 
-  private isNumber(control: FormControl) {
+  private hasCorrectLength(control: FormControl) {
+    const value: string = control.value;
+    if (value === null) return { invalidLength: true };
+    if (value.length > 7 && value.length < 11) {
+      return null;
+    }
+    return { invalidLength: true };
+  }
+
+  private isNummber(control: FormControl) {
     let val = control.value;
 
-    if (val === null || val === '') return null;
+    if (val === null) return null;
 
     if (!val.toString().match(/^[0-9]+(\.?[0-9]+)?$/))
       return { invalidNumber: true };
